@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: jbossappserver1
   become: true
   roles:
     - jboss-standalone
