@@ -23,8 +23,8 @@
 - name: Change ownership of WildFly installation
   file: path=/usr/share/jboss-as/ owner=jboss group=jboss state=directory recurse=yes
   
-#- name: Copy the init script
-#  copy: src=wildfly-init-redhat.sh dest=/etc/init.d/jboss mode=0755
+- name: Copy the JBoss configuration file
+  copy: src=/tmp/standalone.xml dest=/usr/share/jboss-as/standalone/configuration mode=0755
   
-#- name: Enable WildFly to be started at boot
-#  service: name=jboss enabled=yes state=started
+- name: Copy the application WAR
+  copy: src=/tmp/petstore.war dest=/usr/share/jboss-as/standalone/deployments/petstore.war mode=0755
